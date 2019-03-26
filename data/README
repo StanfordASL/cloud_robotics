@@ -1,0 +1,9 @@
+EDGE_DATASET:
+
+    - subdirectories are names of people like:
+        alice/ bob/
+    - where each subdir has many JPGS of training data of faces
+
+CLOUD_DATASET:
+    - same as EDGE_DATASET BUT many more examples of faces, used to train the cloud model
+
