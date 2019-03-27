@@ -9,12 +9,12 @@ import gym
 from gym import spaces
 from gym.utils import seeding
 import pandas
-import ConfigParser
+import configparser
 
-RSS_ROOT_DIR=os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR)
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
 
-UTILS_DIR = RSS_ROOT_DIR + '/utils/'
+UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
 from textfile_utils import *
@@ -28,6 +28,8 @@ def parse_args():
                         default='both')
     parser.add_argument('--prefix', type=str, required=False,
                         default='v1Sim')
+
+    parser.add_argument('--base-results-dir', type=str, required=True, default=None)
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -38,18 +40,18 @@ if __name__ == '__main__':
     # 'RL', 'baseline', or 'both'    
     RL_present = args.RL_present
     prefix = args.prefix
+    base_log_path = args.base_results_dir
 
     HUGE_NEGATIVE = -1000000
 
     if DATA_DELETE_MODE:
-        base_plot_dir = 'boxplot_' + prefix + '/'
+        base_plot_dir = base_log_path + '/boxplot_' + prefix + '/'
         remove_and_create_dir(base_plot_dir)
 
     offloader_env = FourActionOffloadEnv() 
     
-    base_results_dir = 'FourAction_FaceNet_baseline_data_' + prefix + '/'
-    RL_episode_csv_path = 'RL_data_' + prefix + '/RL_results_df.csv'
-    baseline_controller_episode_csv_path = 'FourAction_FaceNet_baseline_data_' + prefix + '/FourAction_episode_results.csv'
+    RL_episode_csv_path = base_log_path + '/RL_results_df.csv'
+    baseline_controller_episode_csv_path = base_log_path + '/' + 'FourAction_FaceNet_baseline_data_' + prefix + '/FourAction_episode_results.csv'
 
     controller_rewards_df, _ = join_RL_baseline_controllers(RL_episode_csv_path = RL_episode_csv_path, baseline_controller_episode_csv_path = baseline_controller_episode_csv_path, RL_present = RL_present)
 
@@ -102,7 +104,7 @@ if __name__ == '__main__':
     threshold_controller_list = ['threshold-' + str(x) for x in threshold_val_list]
     threshold_controller_list = [best_threshold_controller]
 
-    print remap_name_dict
+    print(remap_name_dict)
     controller_rewards_df['Offload Policy'] = [remap_name_dict[x] for x in controller_rewards_df['controller_name']]
 
     # plot paired boxplot
@@ -116,10 +118,11 @@ if __name__ == '__main__':
     edge_cost = offloader_env.query_cost_dict[2]
     cloud_cost = offloader_env.query_cost_dict[3]
 
-    print 'query cost weight: ', query_cost_weight
-    print 'accuracy cost weight: ', accuracy_cost_weight
-    print 'edge cost: ', edge_cost
-    print 'cloud cost: ', cloud_cost
+    print('query cost weight: ', query_cost_weight)
+    print('accuracy cost weight: ', accuracy_cost_weight)
+    print('edge cost: ', edge_cost)
+    print('cloud cost: ', cloud_cost)
+
 
     actions = ['curr_edge', 'curr_cloud'] 
 

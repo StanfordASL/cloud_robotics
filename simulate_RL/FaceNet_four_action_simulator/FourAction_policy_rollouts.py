@@ -1,3 +1,6 @@
+# run benchmark controllers on a series of traces for the offloading problem
+# save their results in a csv for later analysis
+
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -10,10 +13,10 @@ from gym import spaces
 from gym.utils import seeding
 import pandas
 
-RSS_ROOT_DIR=os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR)
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
 
-UTILS_DIR = RSS_ROOT_DIR + '/utils/'
+UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
 from textfile_utils import flatten_list
@@ -30,6 +33,7 @@ def parse_args():
                         default='v1Sim')
     parser.add_argument('--test-seeds', type=str, required=False, default="10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200")
     parser.add_argument('--query-budget-fraction-list', type=str, required=False, default="0.10,0.20,0.50,0.70,1.0")
+    parser.add_argument('--base-results-dir', type=str, required=True, default=None)
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -39,7 +43,9 @@ if __name__ == '__main__':
     args = parse_args()
     prefix = args.prefix
 
-    base_data_dir = 'FourAction_FaceNet_baseline_data_' + prefix + '/'
+    base_results_dir = args.base_results_dir
+
+    base_data_dir = base_results_dir + '/FourAction_FaceNet_baseline_data_' + prefix + '/'
 
     if DATA_DELETE_MODE:
         remove_and_create_dir(base_data_dir)
@@ -97,4 +103,3 @@ if __name__ == '__main__':
     ###############################################
     print('SUMMARY REWARDS STATS')
     print(controller_rewards_df.groupby('controller_name')['reward_sum'].median())
-
