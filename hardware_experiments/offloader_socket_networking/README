@@ -36,9 +36,10 @@ it uses python2.7 [interestingly, it sends video from the server to the client, 
 
 HOW TO RUN THE MOBILE OFFLOADER
 #############################################
-    - the code uses jsonsockets to send numpy arrays which are the embeddings for facenet
+    - the code uses zmq to send numpy arrays which are the embeddings for facenet
     - first find the IP of the server, port using ifconfig
-
+    - set the same IP in both scripts
+    - this code uses PYTHON3
 
     1. first run the server: ./Cloud_socket_server.sh, which runs:
             - video_central_facenet_socket_server.py
