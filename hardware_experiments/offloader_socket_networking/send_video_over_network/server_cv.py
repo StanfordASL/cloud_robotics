@@ -1,8 +1,14 @@
 import sys,os
-from numpysocket import NumpySocket
 from scipy.misc import imresize
 sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import cv2
+
+
+base_video_dir = os.environ['CLOUD_ROOT_DIR']
+utils_dir = base_video_dir + '/utils/'
+sys.path.append(utils_dir)
+
+from numpysocket import NumpySocket
 
 # For local testing
 host_ip = 'localhost'

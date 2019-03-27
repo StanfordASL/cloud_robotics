@@ -1,5 +1,12 @@
 # ## From https://stackoverflow.com/questions/30988033/sending-live-video-frame-over-network-in-python-opencv
 # import socket
+
+
+import sys,os
+base_video_dir = os.environ['CLOUD_ROOT_DIR']
+utils_dir = base_video_dir + '/utils/'
+sys.path.append(utils_dir)
+
 from numpysocket import NumpySocket
 import cv2
 
