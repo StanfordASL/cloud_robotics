@@ -3,6 +3,12 @@
 #	--detector face_detection_model --embedding-model openface_nn4.small2.v1.t7
 
 # import the necessary packages
+import sys,os
+try:
+    sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+except:
+    print('no ROS')
+
 from imutils import paths
 import numpy as np
 import argparse

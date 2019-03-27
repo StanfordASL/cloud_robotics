@@ -108,7 +108,8 @@ class Client(object):
 def _send(socket, data):
   try:
     serialized = json.dumps(data)
-  except (TypeError, ValueError), e:
+  #except (TypeError, ValueError), e:
+  except:
     raise Exception('You can only send JSON-serializable data')
   # send the length of the serialized data first
   socket.send('%d\n' % len(serialized))
@@ -131,6 +132,7 @@ def _recv(socket):
     next_offset += recv_size
   try:
     deserialized = json.loads(view.tobytes())
-  except (TypeError, ValueError), e:
+  #except (TypeError, ValueError), e:
+  except:
     raise Exception('Data received was not in JSON format')
   return deserialized

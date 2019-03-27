@@ -1,4 +1,11 @@
 # import the necessary packages
+
+import sys,os
+try:
+    sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+except:
+    pass
+
 from imutils.video import VideoStream
 from imutils.video import FPS
 import numpy as np
@@ -21,7 +28,7 @@ sys.path.append(utils_dir)
 
 from textfile_utils import *
 #from plotting_utils import *
-from keras_offload_DNN import *
+#from keras_offload_DNN import *
 
 prediction_to_numeric_dict = OrderedDict()
 prediction_to_numeric_dict['unknown'] = -1

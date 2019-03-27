@@ -2,7 +2,10 @@
 
 # this is only on the jetson for a conflict with ROS's openCV
 import sys
-#sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+try:
+    sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+except:
+    print('no ROS')
 from imutils.video import VideoStream
 from imutils.video import FPS
 import numpy as np

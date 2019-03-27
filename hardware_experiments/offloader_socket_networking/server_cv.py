@@ -5,7 +5,7 @@ sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import cv2
 
 # For local testing
-#host_ip = 'localhost'
+host_ip = 'localhost'
 
 # on a WiFi network, determine this using ifconfig
 # host_ip   = '192.168.1.103'

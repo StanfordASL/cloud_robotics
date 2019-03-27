@@ -50,7 +50,7 @@ OFFLOAD_DNN_MODEL_DIR=$DNN_MODEL_DIR/offloader_DNN_logic/keras_offloader_DNN/
 # can test with loopback and then send via WiFi over a live network
 # main args: needs the face detector, the openface model, SVMs for robot and cloud, and the NN offloading logic
 
-python -i $CODE_DIR/socket_offloader_video.py  --detector $DNN_MODEL_DIR/face_detection_model \
+python3 -i $CODE_DIR/socket_offloader_video.py  --detector $DNN_MODEL_DIR/face_detection_model \
     --embedding-model $DNN_MODEL_DIR/openface_nn4.small2.v1.t7 \
     --robot_recognizer $ROBOT_SVM_RESULTS_DIR/recognizer.pickle \
     --robot_le $ROBOT_SVM_RESULTS_DIR/le.pickle \

@@ -26,7 +26,6 @@ utils_dir = base_video_dir + '/utils/'
 sys.path.append(utils_dir)
 
 from textfile_utils import *
-from plotting_utils import *
 
 # run experiments in parallel
 early_stopping = EarlyStopping(monitor='val_loss', patience=2)
@@ -56,7 +55,7 @@ def calc_error_metrics(true_values = None, predicted_values = None):
 
 
 """
-	done
+        done
 """
 
 def build_single_layer_model(data_dim, num_hidden_units):
@@ -197,11 +196,11 @@ def save_keras_model(model = None, save_dir = None, prefix = 'offload'):
     # serialize model to YAML
     model_yaml = model.to_yaml()
     
-    model_yaml_name = save_dir + '/model.' + str(prefix) + '.yaml' 	
-    model_weights_name = save_dir + '/weights.' + str(prefix) + '.h5' 	
+    model_yaml_name = save_dir + '/model.' + str(prefix) + '.yaml'      
+    model_weights_name = save_dir + '/weights.' + str(prefix) + '.h5'   
 
     with open(model_yaml_name, "w") as yaml_file:
-	yaml_file.write(model_yaml)
+        yaml_file.write(model_yaml)
     # serialize weights to HDF5
     model.save_weights(model_weights_name)
     print("Saved model: ", model_yaml_name, model_weights_name)
@@ -212,8 +211,8 @@ def save_keras_model(model = None, save_dir = None, prefix = 'offload'):
 ##################################
 
 def load_keras_model(save_dir = None, prefix = 'offload'):
-    model_yaml_name = save_dir + '/model.' + str(prefix) + '.yaml' 	
-    model_weights_name = save_dir + '/weights.' + str(prefix) + '.h5' 	
+    model_yaml_name = save_dir + '/model.' + str(prefix) + '.yaml'      
+    model_weights_name = save_dir + '/weights.' + str(prefix) + '.h5'   
 
     # load YAML and create model
     yaml_file = open(model_yaml_name, 'r')

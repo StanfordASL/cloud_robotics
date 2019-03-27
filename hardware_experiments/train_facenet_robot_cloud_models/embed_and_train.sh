@@ -37,14 +37,14 @@ do
 
     echo 'start embeddings'
 
-    python $CODE_DIR/extract_embeddings.py --dataset $DATASET \
+    python3 $CODE_DIR/extract_embeddings.py --dataset $DATASET \
         --embeddings $SVM_RESULTS_DIR/embeddings.pickle \
         --detector $DNN_MODEL_DIR/face_detection_model \
         --embedding-model $FACENET_DNN
 
     echo 'training SVM'
 
-    python $CODE_DIR/train_SVM_facenet_model.py --embeddings $SVM_RESULTS_DIR/embeddings.pickle \
+    python3 $CODE_DIR/train_SVM_facenet_model.py --embeddings $SVM_RESULTS_DIR/embeddings.pickle \
         --recognizer $SVM_RESULTS_DIR/recognizer.pickle \
         --le $SVM_RESULTS_DIR/le.pickle
 done
