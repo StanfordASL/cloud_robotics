@@ -10,6 +10,8 @@ CITATIONS:
 HOW TO STREAM OPENCV VIDEO USING SOCKETS
 #############################################
 
+use send_video_over_network/ subfolder
+
 instructions:
 
 it uses python2.7 [interestingly, it sends video from the server to the client, flipped from usual]
@@ -55,14 +57,25 @@ HOW TO RUN THE MOBILE OFFLOADER
         
 BASIC TESTS OF SOCKET PROGRAMMING
 #############################################
-    - look in works/ directory:
+    - look in test/ directory:
 
     - simple tests of jsonsocket
-    1. JSON_SERVER.PY
+    1. python JSON_SERVER.PY
 
-    2. JSON_CLIENT.PY
+    2. python JSON_CLIENT.PY
+
+    NOTE: this library was meant for python 2.7, it does not work for python3
+
+    I think its a quick fix, regarding serializing data as bytes, however we use the pyzmq standard library instead    
 
     
-    
+PYZMQ tests [this is the final library we settled on using]
+
+    simple tests of sending a numpy array over the wire
+
+    1. python3 zmq_NP_server.py
+
+    2. python3 zmq_NP_client.py
+
 
 
