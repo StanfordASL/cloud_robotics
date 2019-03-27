@@ -1,6 +1,10 @@
 # cloud_robotics
 A deep reinforcement learning approach to cloud robotics.
 
+NOTE: Before using this repo in python3, make sure to export the base code directory
+on your machine to as CLOUD_ROBOTICS_DIR in your bashrc, like:
+    export CLOUD_ROOT_DIR='/Users/csandeep/Documents/cloud_robotics' 
+
 Key Directories:
 
 utils: generic utils to plot and load jsons etc.

@@ -4,3 +4,5 @@
 *.avi
 *.DS_Store
 *.pickle
+*.csv
+scratch_results*

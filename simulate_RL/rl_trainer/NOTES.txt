@@ -1,0 +1,7 @@
+main.py
+
+    - slightly change evaluate() function in main.py
+
+    - Evaluator() in train.py:
+        - change test_seeds to also have the query budget fraction every time you reset
+
