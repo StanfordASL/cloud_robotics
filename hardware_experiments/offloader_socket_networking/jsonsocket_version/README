@@ -1,0 +1,5 @@
+this works on python2.7 only
+
+the reason is we use the antiquated jsonsocket library, which needs some string to byte conversion to work on python3
+
+for now, use the python zmq library for python3, which is in the above folder

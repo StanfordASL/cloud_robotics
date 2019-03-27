@@ -14,7 +14,7 @@ from numpysocket import NumpySocket
 host_ip = 'localhost'
 
 # on a WiFi network, determine this using ifconfig
-# host_ip   = '192.168.1.103'
+host_ip   = '192.168.1.101'
 
 
 # address of the camera for nvidia jetson TX2

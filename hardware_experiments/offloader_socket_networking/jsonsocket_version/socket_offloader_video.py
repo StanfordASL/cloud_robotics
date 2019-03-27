@@ -15,6 +15,7 @@ import pickle
 import time
 import cv2
 import sys,os
+from jsonsocket import Client, Server
 
 # generic utils and root dir
 base_video_dir = os.environ['CLOUD_ROOT_DIR']
@@ -24,10 +25,6 @@ sys.path.append(utils_dir)
 # utils for the DNN offloader
 offload_utils_dir = base_video_dir + '/hardware_experiments/offloader_implementation/'
 sys.path.append(offload_utils_dir)
-
-# utils for socket programming using zmq library
-import zmq
-from zmq_socket_utils import *
 
 # from main utils dir
 from textfile_utils import *
@@ -113,17 +110,7 @@ host = args['host']
 port = int(args['port'])
 
 # Client code:
-# ZeroMQ Context
-context = zmq.Context()
-
-# Define the socket using the "Context"
-sock = context.socket(zmq.REQ)
-
-host_port_str = "tcp://" + str(host) + ':' + str(port)
-print('CONNECTING TO: ', host_port_str)
-sock.connect(host_port_str)
-
-
+client = Client()
 
 # setup for making the output video
 #########################################
@@ -210,7 +197,7 @@ FRAME_POLL = 1
 # how often to write offloading results to a txt file for plotting
 WRITE_INTERVAL = 5
 # how often to print results
-PRINT_INTERVAL = 20
+PRINT_INTERVAL = 10
 # whether to draw annotations on images
 DRAW_BOXES_MODE = True
 # confidence for a true detection
@@ -358,17 +345,17 @@ while vs.isOpened():
                                     embedding_vec_to_send_dict = {'frame': frame_number, 'emb': [str(x) for x in vec[0]]}
 
                                     # connect to server and send
-                                    send_zipped_pickle(sock, embedding_vec_to_send_dict)
+                                    client.connect(host, port).send(embedding_vec_to_send_dict)
 
-                                    # receive the results back
-                                    cloud_response_dict = recv_zipped_pickle(sock)
+                                    # recieve the results back
+                                    cloud_response_dict = client.recv()
                                    
                                     # unpack the label from the cloud
                                     cloud_name = cloud_response_dict['cloud_name']
                                     cloud_SVM_proba = cloud_response_dict['cloud_SVM_proba']
                                     cloud_numeric_prediction = cloud_response_dict['cloud_numeric_prediction']
 
-                                    #print('frame: ', frame_number, 'RESPONSE CLOUD NAME: ', cloud_name, 'RESPONSE SVM PROBA: ', cloud_SVM_proba, 'CLOUD PRED: ', cloud_numeric_prediction)
+                                    print('frame: ', frame_number, 'RESPONSE CLOUD NAME: ', cloud_name, 'RESPONSE SVM PROBA: ', cloud_SVM_proba, 'CLOUD PRED: ', cloud_numeric_prediction)
                                 else:
                                     # this is PURELY for training a model
                                     cloud_name, cloud_SVM_proba = query_facenet_model_SVM(vec = vec, recognizer = cloud_recognizer, le = cloud_le)
