@@ -1,0 +1,68 @@
+CITATIONS:
+    - I modified code from NumpySocket
+    sabjorn, NumpySocket
+
+        - https://github.com/sabjorn/NumpySocket
+    
+    - I used the jsonsocket library
+        - https://github.com/mdebbar/jsonsocket
+
+HOW TO STREAM OPENCV VIDEO USING SOCKETS
+#############################################
+
+instructions:
+
+it uses python2.7 [interestingly, it sends video from the server to the client, flipped from usual]
+
+1. start client_cv.py on remote machine
+
+    - on this machine, find the ip address and update it as host_ip in server_cv.py
+    - try ifconfig, example on a Mac:
+
+    en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+    ether f4:5c:89:b5:17:c3 
+    inet6 fe80::41c:78ac:eac8:10f1%en0 prefixlen 64 secured scopeid 0x4 
+    inet 192.168.8.45 netmask 0xffffff00 broadcast 192.168.8.255
+   
+    - use the address after inet 
+
+
+2. start server_cv.py on the Jetson afterwards
+    - this starts the jetson camera and streams it to the client
+    - for a loopback test, use IP = 'localhost'
+
+
+HOW TO RUN THE MOBILE OFFLOADER
+#############################################
+    - the code uses jsonsockets to send numpy arrays which are the embeddings for facenet
+    - first find the IP of the server, port using ifconfig
+
+
+    1. first run the server: ./Cloud_socket_server.sh, which runs:
+            - video_central_facenet_socket_server.py
+            - arguments: cloud pickled SVM and cloud pickled label encoder
+            - essentially runs the cloud facenet model on demand
+
+
+    2. then run the client [robot offloading app]:
+        ./Offloader_socket_Mobile.sh
+
+            - can run on live video [CAMERA_MODE: True] or pre-recorded ones
+
+            - calls socket_offloader_video.py
+
+                - this is the robot offloader, which loops thru video and uses a neural net to decide whether to offload embeddings
+        
+BASIC TESTS OF SOCKET PROGRAMMING
+#############################################
+    - look in works/ directory:
+
+    - simple tests of jsonsocket
+    1. JSON_SERVER.PY
+
+    2. JSON_CLIENT.PY
+
+    
+    
+
+

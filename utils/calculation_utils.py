@@ -25,6 +25,13 @@ def get_RMSE(input_vec = None):
 
     return np.sqrt(np.mean([x**2 for x in input_vec]))
 
+# frame difference code
+def normalize(arr):
+    rng = arr.max() - arr.min()
+    amin = arr.min()
+
+    return (arr-amin)*255/rng
+
 def get_random_uniform(p = 0.5):                                             
     random.seed()
     sample = np.random.uniform()                                             

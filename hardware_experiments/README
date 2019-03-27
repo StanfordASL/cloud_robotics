@@ -36,7 +36,9 @@ TO CREATE SVM FOR FACENET ROBOT AND CLOUD MODELS:
         - SVM model: recognizer.pickle
         - label encoder mapping a name to a label encoding: le.pickle
 
-TO RUN OFFLOADER:
-RunOffloader.sh
+TO RUN OFFLOADER
+   offloader_socket_networking/
 
-- calls offloader_video.py
+   - uses python sockets to communicate between machines and send frames/FaceNet embeddings over a WiFi network
+   - this takes less overhead than ROS
+
