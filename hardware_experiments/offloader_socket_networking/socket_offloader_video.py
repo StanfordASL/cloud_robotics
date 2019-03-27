@@ -368,7 +368,7 @@ while vs.isOpened():
                                     cloud_SVM_proba = cloud_response_dict['cloud_SVM_proba']
                                     cloud_numeric_prediction = cloud_response_dict['cloud_numeric_prediction']
 
-                                    #print('frame: ', frame_number, 'RESPONSE CLOUD NAME: ', cloud_name, 'RESPONSE SVM PROBA: ', cloud_SVM_proba, 'CLOUD PRED: ', cloud_numeric_prediction)
+                                    print('frame: ', frame_number, 'RESPONSE CLOUD NAME: ', cloud_name, 'RESPONSE SVM PROBA: ', cloud_SVM_proba, 'CLOUD PRED: ', cloud_numeric_prediction)
                                 else:
                                     # this is PURELY for training a model
                                     cloud_name, cloud_SVM_proba = query_facenet_model_SVM(vec = vec, recognizer = cloud_recognizer, le = cloud_le)
