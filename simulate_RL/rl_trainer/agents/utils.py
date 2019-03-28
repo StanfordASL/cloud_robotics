@@ -1,3 +1,10 @@
+import sys, os
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
+
+RL_ROOT_DIR = CLOUD_ROOT_DIR + '/simulate_RL/'
+sys.path.append(RL_ROOT_DIR)
+
 import numpy as np
 import random
 import tensorflow as tf

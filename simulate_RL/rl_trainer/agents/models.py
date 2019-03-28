@@ -1,4 +1,10 @@
-import os
+import sys, os
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
+
+RL_ROOT_DIR = CLOUD_ROOT_DIR + '/simulate_RL/'
+sys.path.append(RL_ROOT_DIR)
+
 from rl_trainer.agents.utils import *
 from rl_trainer.agents.a2c_policies import *
 from rl_trainer.agents.ppo_policies import *

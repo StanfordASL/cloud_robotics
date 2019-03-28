@@ -31,8 +31,8 @@ ENV_NAME="FourAction"
 TRAIN_QUERY_LIST="0.10,0.20,0.50,0.70,1.0" 
 
 # this is for the test traces
-#QUERY_LIST="0.10,0.20,0.50,0.70,1.0" 
-QUERY_LIST="0.10" 
+QUERY_LIST="0.10,0.20,0.50,0.70,1.0" 
+#QUERY_LIST="0.10" 
 
 # seeds for the stochastic traces to test on
 TEST_SEEDS="10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200"
