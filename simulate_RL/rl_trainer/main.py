@@ -69,6 +69,10 @@ def train(parser, train_seeds, test_seeds, algo, env_name):
 
     tf.set_random_seed(seed)
     config = tf.ConfigProto(allow_soft_placement=True)
+    # key statement added here for working on the jetson tx2 GPU
+    # https://devtalk.nvidia.com/default/topic/1029742/jetson-tx2/tensorflow-1-6-not-working-with-jetpack-3-2/
+    config.gpu_options.allow_growth = True
+
     sess = tf.Session(config=config)
     if algo == 'a2c':
         global_model = A2C(sess, n_s, n_a, total_step, model_config=parser['MODEL_CONFIG'],

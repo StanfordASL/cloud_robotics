@@ -31,7 +31,7 @@ def FourAction_rollout_all_edge(offloader_env = None, shuffle_mode = None, seed 
     reward_vec = []
     while (not done_flag):
         
-	# decision stage capping handled by simulator
+        # decision stage capping handled by simulator
         new_state_dict, reward, done_flag, _ = offloader_env._step(curr_edge_action)
 
         reward_vec.append(reward)
@@ -62,17 +62,16 @@ def FourAction_rollout_threshold(offloader_env = None, shuffle_mode = None, seed
 
     while (not done_flag):
         
-	# decision stage capping handled by simulator
+        # decision stage capping handled by simulator
         new_state_dict, reward, done_flag, _ = offloader_env._step(next_planned_action)
+        conf = offloader_env.state_dict['past_overall_predict'][1]
 
-	conf = offloader_env.state_dict['past_overall_predict'][1]
-
-	# edge conf too low
-	if float(conf) < threshold:	
-	    next_planned_action = curr_cloud_action
+        # edge conf too low
+        if float(conf) < threshold:     
+            next_planned_action = curr_cloud_action
             #print('conf: ', conf, 'threshold: ', threshold, next_planned_action)
-	else:
-	    next_planned_action = curr_edge_action
+        else:
+            next_planned_action = curr_edge_action
 
         reward_vec.append(reward)
 
@@ -134,8 +133,8 @@ def FourAction_rollout_random_action(offloader_env = None, shuffle_mode = None, 
     done_flag = False
     reward_vec = []
     while (not done_flag):
-	random_action = random.sample(action_list, 1)[0]
-	new_state_dict, reward, done_flag, _ = offloader_env._step(random_action)
+        random_action = random.sample(action_list, 1)[0]
+        new_state_dict, reward, done_flag, _ = offloader_env._step(random_action)
         reward_vec.append(reward)
 
     if results_print_mode:
@@ -178,7 +177,7 @@ def FourAction_rollout_pure_oracle_action(offloader_env = None, shuffle_mode = N
             
         past_action = oracle_action
         time_vec.append(offloader_env.t)
-	
+        
         new_state_dict, reward, done_flag, _ = offloader_env._step(oracle_action)
         reward_vec.append(reward)
         implemented_action_vec.append(oracle_action)

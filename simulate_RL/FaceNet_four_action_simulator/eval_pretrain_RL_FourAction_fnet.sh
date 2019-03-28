@@ -17,8 +17,8 @@ MODEL_SAVE_PATH=$CLOUD_ROOT_DIR/DNN_models/RL_checkpoints/${PREFIX}/model/
 
 # where all logs and outputs go
 LOG_PATH=$CLOUD_ROOT_DIR/scratch_results/RL_data_${PREFIX}/
-rm -rf $LOG_PATH
-mkdir -p $LOG_PATH
+#rm -rf $LOG_PATH
+#mkdir -p $LOG_PATH
 
 BASE_RESULTS_DIR=$CLOUD_ROOT_DIR/scratch_results/
 
@@ -42,14 +42,14 @@ TEST_SEEDS="10,20,30,40,50"
 #TEST_SEEDS="10"
 
 # 1. EVALUATE A PRE-TRAINED RL AGENT on the new test traces and log the results
-python3 $RL_TRAINER_DIR/evaluate_RL_offload_utils.py --config-path $CONFIG --test-seeds $TEST_SEEDS --env-name $ENV_NAME --log-path $LOG_PATH --model-save-path $MODEL_SAVE_PATH --query-budget-fraction-list $QUERY_LIST
+#python3 $RL_TRAINER_DIR/evaluate_RL_offload_utils.py --config-path $CONFIG --test-seeds $TEST_SEEDS --env-name $ENV_NAME --log-path $LOG_PATH --model-save-path $MODEL_SAVE_PATH --query-budget-fraction-list $QUERY_LIST
 
 # plot the RL agent
 #cd $BASE_4ACTION_DIR
 #python $BASE_4ACTION_DIR/timeseries_plot_FourAction.py --RL_present 'RL' --prefix $PREFIX 
 
 # run the baselines
-python $BASE_4ACTION_DIR/FourAction_policy_rollouts.py --prefix $PREFIX --test-seeds $TEST_SEEDS --query-budget-fraction-list $QUERY_LIST --base-results-dir $LOG_PATH
+python3 $BASE_4ACTION_DIR/FourAction_policy_rollouts.py --prefix $PREFIX --test-seeds $TEST_SEEDS --query-budget-fraction-list $QUERY_LIST --base-results-dir $LOG_PATH
 
 # plot a boxplot of all different controllers
 python3 $BASE_4ACTION_DIR/boxplot_FourAction_env.py --prefix $PREFIX --RL_present 'both' --base-results-dir $LOG_PATH

@@ -1,0 +1,15 @@
+CITATION:
+
+this code is from
+#   https://jkjung-avt.github.io/camera-caffe-threaded/
+#  JK Jung <jkjung13@gmail.com>
+
+
+we just provide it for testing the jetson IP camera works in real-time
+
+python3 tegra-cam-caffe.py works, very fast when on GPU
+
+testing on CPU mode:
+
+python3 tegra-cam-caffe.py --cpu
+
