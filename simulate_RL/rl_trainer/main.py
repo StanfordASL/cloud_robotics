@@ -1,32 +1,36 @@
 #!/usr/bin/env python3
 
+import sys, os
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
+
+RL_ROOT_DIR = CLOUD_ROOT_DIR + '/simulate_RL/'
+sys.path.append(RL_ROOT_DIR)
+
 import argparse
 import configparser
 import signal
 import tensorflow as tf
 import threading
-import sys,os
 
 from rl_trainer.agents.models import A2C, PPO
-from stochastic_simulator.stochastic_video_offload_env import StochasticInputOffloadEnv
+#from stochastic_simulator.stochastic_video_offload_env import StochasticInputOffloadEnv
 from rl_trainer.train import Trainer, AsyncTrainer, Evaluator
 from rl_trainer.utils import GlobalCounter, init_out_dir, init_model_summary, signal_handler
 
-RSS_ROOT_DIR = os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR + '/always_query_edge_simulator') 
-from always_query_edge_simulator import AlwaysQueryEdgeOffloadEnv
+CLOUD_ROOT_DIR = os.environ['CLOUD_ROOT_DIR']
 
-sys.path.append(RSS_ROOT_DIR + '/FourActionSimulator/') 
+#sys.path.append(CLOUD_ROOT_DIR + '/FourActionSimulator/') 
 #from four_action_simulator_v1 import FourActionOffloadEnv
 
-sys.path.append(RSS_ROOT_DIR + '/FaceNet_four_action_simulator/')
+sys.path.append(CLOUD_ROOT_DIR + '/simulate_RL/FaceNet_four_action_simulator/')
 from four_action_simulator_v1_fnet import FourActionOffloadEnv
 
 def parse_args():
-    default_config_path = os.path.join(RSS_ROOT_DIR, 'rl_configs/test.ini')
+    default_config_path = os.path.join(CLOUD_ROOT_DIR, 'rl_configs/test.ini')
     parser = argparse.ArgumentParser()
     parser.add_argument('--base-dir', type=str, required=False,
-                        default=RSS_ROOT_DIR, help="base directory")
+                        default=CLOUD_ROOT_DIR, help="base directory")
     parser.add_argument('--config-path', type=str, required=False,
                         default=default_config_path, help="config path")
     parser.add_argument('--mode', type=str, required=False,
@@ -42,10 +46,10 @@ def parse_args():
     return parser.parse_args()
 
 
-def train(parser, train_seeds, test_seeds, algo, env_name):
+def train(parser, train_seeds, test_seeds, algo, env_name, base_dir):
     seed = parser.getint('TRAIN_CONFIG', 'SEED')
     num_env = parser.getint('TRAIN_CONFIG', 'NUM_ENV')
-    fraction = parser.getfloat('ENV_CONFIG', 'QUARY_BUDGET_FRACTION')
+    #fraction = parser.getfloat('ENV_CONFIG', 'QUARY_BUDGET_FRACTION')
 
     if env_name == 'stochastic':
         env = StochasticInputOffloadEnv(query_budget_frac=fraction)
@@ -62,7 +66,7 @@ def train(parser, train_seeds, test_seeds, algo, env_name):
     print('n_a: ', n_a)
     print('n_s: ', n_s)
     total_step = int(parser.getfloat('TRAIN_CONFIG', 'MAX_STEP'))
-    base_dir = parser.get('TRAIN_CONFIG', 'BASE_DIR')
+    #base_dir = parser.get('TRAIN_CONFIG', 'BASE_DIR')
     save_step = int(parser.getfloat('TRAIN_CONFIG', 'SAVE_INTERVAL'))
     log_step = int(parser.getfloat('TRAIN_CONFIG', 'LOG_INTERVAL'))
     save_path, log_path = init_out_dir(base_dir, 'train')
@@ -165,8 +169,8 @@ def train(parser, train_seeds, test_seeds, algo, env_name):
         data.to_csv(log_path + '/evaluate_result.csv')
 
 
-def evaluate(parser, test_seeds, algo, env_name):
-    fraction = parser.getfloat('ENV_CONFIG', 'QUARY_BUDGET_FRACTION')
+def evaluate(parser, test_seeds, algo, env_name, base_dir):
+    #fraction = parser.getfloat('ENV_CONFIG', 'QUARY_BUDGET_FRACTION')
 
     if env_name == 'stochastic':
         env = StochasticInputOffloadEnv(query_budget_frac=fraction)
@@ -188,7 +192,8 @@ def evaluate(parser, test_seeds, algo, env_name):
                     discrete=True)
     else:
         model = None
-    base_dir = parser.get('TRAIN_CONFIG', 'BASE_DIR')
+
+    #base_dir = parser.get('TRAIN_CONFIG', 'BASE_DIR')
     save_path, log_path = init_out_dir(base_dir, 'evaluate')
     sess.run(tf.global_variables_initializer())
     saver = tf.train.Saver()
@@ -216,7 +221,7 @@ if __name__ == '__main__':
     print('ENV NAME: ', args.env_name, 'ALGO: ', args.agent)
 
     if args.mode == 'train':
-        train(parser, train_seeds, test_seeds, args.agent, args.env_name)
+        train(parser, train_seeds, test_seeds, args.agent, args.env_name, args.base_dir)
     elif args.mode == 'evaluate':
-        evaluate(parser, test_seeds, args.agent, args.env_name)
+        evaluate(parser, test_seeds, args.agent, args.env_name, args.base_dir)
 
