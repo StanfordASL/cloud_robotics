@@ -31,3 +31,19 @@ We modified publicly available code and used vision DNNs from:
 3. jsonsockets library
 
 
+Common problems on the Jetson TX2 when running Tensorflow with CUDA:
+
+if you get:
+
+
+2019-03-27 17:20:39.660979: W ./tensorflow/core/common_runtime/gpu/pool_allocator.h:195] could not allocate pinned host memory of size: 2304
+
+add the following, as per:
+
+
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+
+session = tf.Session(config=config, ...)
+
+https://devtalk.nvidia.com/default/topic/1029742/jetson-tx2/tensorflow-1-6-not-working-with-jetpack-3-2/
