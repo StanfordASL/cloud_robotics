@@ -7,3 +7,7 @@ EDGE_DATASET:
 CLOUD_DATASET:
     - same as EDGE_DATASET BUT many more examples of faces, used to train the cloud model
 
+data_facenet/
+    - facenet results on random images, packaged into a nice csv
+    - this is for training the RL agent
+

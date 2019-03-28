@@ -9,14 +9,13 @@ from gym import spaces
 from gym.utils import seeding
 import pandas
 
-RSS_ROOT_DIR=os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR)
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
 
-UTILS_DIR = RSS_ROOT_DIR + '/utils/'
+UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
 from textfile_utils import *
-#from state_utils_four_action_simulator import *
 
 # CHANGED FOR THE V1 SIMULATOR !!!!
 # DONE

@@ -9,19 +9,16 @@ from gym import spaces
 from gym.utils import seeding
 import pandas
 
-RSS_ROOT_DIR=os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR)
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
 
-UTILS_DIR = RSS_ROOT_DIR + '/utils/'
+UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
 from textfile_utils import *
 from state_utils_four_action_simulator import *
+from calculation_utils import *
 
-
-GP_UTILS_DIR = RSS_ROOT_DIR + '/GaussianProcess/'
-sys.path.append(GP_UTILS_DIR)
-from GP_cloud_robotics_setup import calc_error_metrics
 
 # CHANGED FOR THE V1 SIMULATOR !!!!
 # DONE

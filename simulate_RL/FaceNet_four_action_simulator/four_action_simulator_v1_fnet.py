@@ -13,28 +13,25 @@ try:
 except:
     import configparser
 
-RSS_ROOT_DIR=os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR)
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
 
-UTILS_DIR = RSS_ROOT_DIR + '/utils/'
+UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
 from state_utils_four_action_simulator_fnet import *
-
-AQE_UTILS_DIR = RSS_ROOT_DIR + '/always_query_edge_simulator'
-sys.path.append(AQE_UTILS_DIR)
-
 from calculation_utils import *
-from state_utils_always_query_edge import AQE_state_dict_to_state_vec
 
-FACENET_UTILS_DIR = RSS_ROOT_DIR + '/facenet/'
+FACENET_UTILS_DIR = CLOUD_ROOT_DIR + '/simulate_RL/facenet/'
 sys.path.append(FACENET_UTILS_DIR)
 
-DATA_DIR = RSS_ROOT_DIR + '/data_facenet/'
+# generates a synthetic video stream of faces
+from stochastic_timeseries_facenet import facenet_stochastic_video
 
+# pre-computed facenet images to aid in simulation training
+DATA_DIR = CLOUD_ROOT_DIR + '/data/data_facenet/'
 FACENET_DATA_CSV = DATA_DIR + '/SVM_results.csv'
 
-from stochastic_timeseries_facenet import facenet_stochastic_video
 
 """
     uses real faces from FaceNet

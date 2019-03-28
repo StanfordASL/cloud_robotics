@@ -62,6 +62,22 @@ def get_bounded_ts_history(ts = None, t = None, NUM_PAST = None, fill_val = -1):
 
     return padded_vec
 
+"""
+    transform a dict to a vector, done
+"""
+def AQE_state_dict_to_state_vec(state_dict = None, order_list = None):
+    state_vec = []
+
+    for key in order_list:
+        state_element_list = state_dict[key]
+
+        state_vec += state_element_list
+
+    # concat_state_vec = np.array(flatten_list(state_vec))
+    concat_state_vec = np.array(state_vec)
+
+    return concat_state_vec
+
 
 
 if __name__ == '__main__':

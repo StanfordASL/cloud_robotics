@@ -8,25 +8,15 @@ from random import shuffle
 import pandas
 import random
 
-RSS_ROOT_DIR=os.environ['RSS_ROOT_DIR']
-sys.path.append(RSS_ROOT_DIR)
-UTILS_DIR = RSS_ROOT_DIR + '/utils/'
+CLOUD_ROOT_DIR=os.environ['CLOUD_ROOT_DIR']
+sys.path.append(CLOUD_ROOT_DIR)
+UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
-
-GP_UTILS_DIR = RSS_ROOT_DIR + '/GaussianProcess/'
-sys.path.append(GP_UTILS_DIR)
-from GP_cloud_robotics_setup import calc_error_metrics
-from textfile_utils import flatten_list, shift_np_array
+from textfile_utils import *
 from calculation_utils import *
 
-AQE_SIM_DIR = RSS_ROOT_DIR + '/always_query_edge_simulator/'
-sys.path.append(AQE_SIM_DIR)
-from state_utils_always_query_edge import shift_dict_value, get_bounded_ts_history, AQE_state_dict_to_state_vec
-
-
 MAX_L2_NORM=2.0
-
 MIN_Y = 0.0
 MAX_Y = 11.0
 
