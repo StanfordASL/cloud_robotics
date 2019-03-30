@@ -52,4 +52,8 @@ TEST_SEEDS="10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,2
 #python3 $BASE_4ACTION_DIR/FourAction_policy_rollouts.py --prefix $PREFIX --test-seeds $TEST_SEEDS --query-budget-fraction-list $QUERY_LIST --base-results-dir $LOG_PATH
 
 # plot a boxplot of all different controllers
-python3 -i $BASE_4ACTION_DIR/pubQuality_boxplot_FourAction_env.py --prefix $PREFIX --RL_present 'both' --base-results-dir $LOG_PATH
+#python3 $BASE_4ACTION_DIR/pubQuality_boxplot_FourAction_env.py --prefix $PREFIX --RL_present 'both' --base-results-dir $LOG_PATH
+
+# plot a pareto optimal covariance plot shown in paper
+python3 $BASE_4ACTION_DIR/loss_cost_pareto_plot_ellipsoid.py --prefix $PREFIX --RL_present 'both' --base-results-dir $LOG_PATH
+
