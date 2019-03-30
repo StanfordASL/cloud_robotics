@@ -31,14 +31,14 @@ ENV_NAME="FourAction"
 TRAIN_QUERY_LIST="0.10,0.20,0.50,0.70,1.0" 
 
 # this is for the test traces
-QUERY_LIST="0.10,0.20,0.50,0.70,1.0" 
+QUERY_LIST="0.15,0.30,0.45,0.80,0.9" 
 #QUERY_LIST="0.10" 
 
 # seeds for the stochastic traces to test on
 TEST_SEEDS="10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200"
 
 # uncomment for smaller tests
-TEST_SEEDS="10,20,30,40,50"
+#TEST_SEEDS="10,20,30,40,50"
 #TEST_SEEDS="10"
 
 # 1. EVALUATE A PRE-TRAINED RL AGENT on the new test traces and log the results
@@ -49,7 +49,7 @@ TEST_SEEDS="10,20,30,40,50"
 #python $BASE_4ACTION_DIR/timeseries_plot_FourAction.py --RL_present 'RL' --prefix $PREFIX 
 
 # run the baselines
-python3 $BASE_4ACTION_DIR/FourAction_policy_rollouts.py --prefix $PREFIX --test-seeds $TEST_SEEDS --query-budget-fraction-list $QUERY_LIST --base-results-dir $LOG_PATH
+#python3 $BASE_4ACTION_DIR/FourAction_policy_rollouts.py --prefix $PREFIX --test-seeds $TEST_SEEDS --query-budget-fraction-list $QUERY_LIST --base-results-dir $LOG_PATH
 
 # plot a boxplot of all different controllers
-python3 $BASE_4ACTION_DIR/boxplot_FourAction_env.py --prefix $PREFIX --RL_present 'both' --base-results-dir $LOG_PATH
+python3 -i $BASE_4ACTION_DIR/pubQuality_boxplot_FourAction_env.py --prefix $PREFIX --RL_present 'both' --base-results-dir $LOG_PATH
