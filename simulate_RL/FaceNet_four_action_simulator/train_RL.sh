@@ -1,5 +1,5 @@
 # what do we call the run of interest? [change this as we change simulation params]
-PREFIX=facenet_4action
+PREFIX=facenet_4action_run2
 
 RESULTS_DIR=$CLOUD_ROOT_DIR/scratch_results/train_RL_${PREFIX}/
 rm -rf ${RESULTS_DIR}
