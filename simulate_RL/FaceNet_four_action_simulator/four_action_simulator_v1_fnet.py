@@ -93,7 +93,7 @@ class FourActionOffloadEnv:
         self.query_cost_dict[0] = 0.0
         self.query_cost_dict[1] = 0.0
         self.query_cost_dict[2] = 1.0
-        self.query_cost_dict[3] = 7.0
+        self.query_cost_dict[3] = 5.0
 
         # budget on queries randomly changed in __RESET__ now!!
         self.seed = 42

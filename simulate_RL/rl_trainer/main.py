@@ -116,11 +116,11 @@ def train(parser, train_seeds, test_seeds, algo, env_name, base_dir):
         for i in range(num_env):
 
             if env_name == 'stochastic':
-                env = StochasticInputOffloadEnv(query_budget_frac=fraction)
+                cur_env = StochasticInputOffloadEnv(query_budget_frac=fraction)
             elif env_name == 'AQE':
-                env = AlwaysQueryEdgeOffloadEnv()
+                cur_env = AlwaysQueryEdgeOffloadEnv()
             elif env_name == 'FourAction':
-                env = FourActionOffloadEnv()
+                cur_env = FourActionOffloadEnv()
             else:
                 pass
 
