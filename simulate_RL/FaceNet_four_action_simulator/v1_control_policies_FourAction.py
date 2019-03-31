@@ -16,6 +16,7 @@ UTILS_DIR = CLOUD_ROOT_DIR + '/utils/'
 sys.path.append(UTILS_DIR)
 
 from textfile_utils import *
+from state_utils_four_action_simulator_fnet import *
 
 # CHANGED FOR THE V1 SIMULATOR !!!!
 # DONE
@@ -158,7 +159,9 @@ def FourAction_rollout_pure_oracle_action(offloader_env = None, shuffle_mode = N
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
     offloader_env.controller_name = 'pure_oracle'
-    
+   
+    #print(offloader_env.query_ts)
+
     done_flag = False
     reward_vec = []
 
@@ -207,12 +210,16 @@ def offline_oracle_strategy(offloader_env = None, shuffle_mode = None, seed = No
     reward_vec = []
    
     # query ts and edge cloud accuracy gap
+    # this a vector of all the facenet embeddings
     query_ts = offloader_env.query_ts
     edge_cloud_accuracy_gap_vec = offloader_env.edge_cloud_accuracy_gap_vec
     edge_prediction_vec = offloader_env.edge_prediction_vec
     edge_confidence_vec = offloader_env.edge_confidence_vec
     cloud_prediction_vec = offloader_env.cloud_prediction_vec
     true_value_vec = offloader_env.true_value_vec
+
+    rolling_diff_vec = offloader_env.rolling_diff_vec
+    image_name_vec = offloader_env.image_name_vec
 
     # compute the reward in all these cases
     past_value = None
@@ -225,10 +232,20 @@ def offline_oracle_strategy(offloader_env = None, shuffle_mode = None, seed = No
     sparse_gap_vec = []
     reward_vec = []
 
-    for t, gap in enumerate(query_ts):
+    # debug
+    # print(' ')
+    # print('rolling_diff_vec: ', rolling_diff_vec)
+    # print(' ')
+    # print('image_name_vec: ', image_name_vec)
+    # print(' ')
+
+    for t, gap in enumerate(image_name_vec):
         # true value
         y_true = true_value_vec[t]
-        
+    
+        #print('gap:',  gap)
+        #print('past_value: ',  past_value)
+
         if gap != past_value:
             past_value = gap
             changepoints_vec.append(t)
@@ -243,7 +260,7 @@ def offline_oracle_strategy(offloader_env = None, shuffle_mode = None, seed = No
             edge_state_dict['past_overall_predict'] = past_edge_overall_predict
 
             # what would the edge cost be?
-            edge_reward, edge_query_cost_term, edge_accuracy_cost_term, _ = get_FourAction_reward(state_dict = edge_state_dict, numeric_action = curr_edge_action, reward_params_dict = offloader_env.reward_params_dict, numeric_to_action_dict = offloader_env.numeric_to_action_dict, query_cost_dict = offloader_env.query_cost_dict, GP_mode = False, y_true_input = y_true) 
+            edge_reward, edge_query_cost_term, edge_accuracy_cost_term, _ = get_FourAction_reward(state_dict = edge_state_dict, numeric_action = curr_edge_action, reward_params_dict = offloader_env.reward_params_dict, numeric_to_action_dict = offloader_env.numeric_to_action_dict, query_cost_dict = offloader_env.query_cost_dict, y_true_input = y_true, PROBE_COST_ONLY = False) 
             
             edge_reward_vec.append(edge_reward)
 
@@ -254,7 +271,7 @@ def offline_oracle_strategy(offloader_env = None, shuffle_mode = None, seed = No
             cloud_state_dict['past_overall_predict'] = past_cloud_overall_predict
 
             # what would the cloud cost be?
-            cloud_reward, cloud_query_cost_term, cloud_accuracy_cost_term, _ = get_FourAction_reward(state_dict = cloud_state_dict, numeric_action = curr_cloud_action, reward_params_dict = offloader_env.reward_params_dict, numeric_to_action_dict = offloader_env.numeric_to_action_dict, query_cost_dict = offloader_env.query_cost_dict, GP_mode = False, y_true_input = y_true) 
+            cloud_reward, cloud_query_cost_term, cloud_accuracy_cost_term, _ = get_FourAction_reward(state_dict = cloud_state_dict, numeric_action = curr_cloud_action, reward_params_dict = offloader_env.reward_params_dict, numeric_to_action_dict = offloader_env.numeric_to_action_dict, query_cost_dict = offloader_env.query_cost_dict, PROBE_COST_ONLY = False, y_true_input = y_true) 
 
             cloud_reward_vec.append(cloud_reward)
 
@@ -283,7 +300,7 @@ def offline_oracle_strategy(offloader_env = None, shuffle_mode = None, seed = No
             test_state_dict['curr_query_x'] = [query_ts[t]]
             test_state_dict['past_overall_predict'] = past_overall_predict
 
-            reward, query_cost_term, accuracy_cost_term, _ = get_FourAction_reward(state_dict = test_state_dict, numeric_action = action, reward_params_dict = offloader_env.reward_params_dict, numeric_to_action_dict = offloader_env.numeric_to_action_dict, query_cost_dict = offloader_env.query_cost_dict, GP_mode = False, y_true_input = y_true) 
+            reward, query_cost_term, accuracy_cost_term, _ = get_FourAction_reward(state_dict = test_state_dict, numeric_action = action, reward_params_dict = offloader_env.reward_params_dict, numeric_to_action_dict = offloader_env.numeric_to_action_dict, query_cost_dict = offloader_env.query_cost_dict, y_true_input = y_true, PROBE_COST_ONLY = False) 
             
             reward_vec.append(reward)
 

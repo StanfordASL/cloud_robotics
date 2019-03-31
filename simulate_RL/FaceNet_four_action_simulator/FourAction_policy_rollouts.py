@@ -77,7 +77,7 @@ if __name__ == '__main__':
                 FourAction_rollout_threshold(offloader_env = offloader_env, shuffle_mode = shuffle_mode, seed = seed, results_print_mode = True, fixed_query_budget = fixed_query_budget, threshold = threshold)
 
             ### now implement oracle action
-            #reward_vec, empirical_reward_vec, control_action_vec, implemented_action_vec, time_vec = FourAction_rollout_pure_oracle_action(offloader_env = offloader_env, shuffle_mode = shuffle_mode, seed = seed, results_print_mode = True, GP_mode = False, fixed_query_budget = fixed_query_budget)
+            reward_vec, empirical_reward_vec, control_action_vec, implemented_action_vec, time_vec = FourAction_rollout_pure_oracle_action(offloader_env = offloader_env, shuffle_mode = shuffle_mode, seed = seed, results_print_mode = True, GP_mode = False, fixed_query_budget = fixed_query_budget)
   
             #print(reward_vec)
             #print(empirical_reward_vec)

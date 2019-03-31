@@ -18,8 +18,8 @@ MODEL_SAVE_PATH=$CLOUD_ROOT_DIR/scratch_results/train_RL_${PREFIX}/model/
 
 # where all logs and outputs go
 LOG_PATH=$CLOUD_ROOT_DIR/scratch_results/RL_data_${PREFIX}/
-rm -rf $LOG_PATH
-mkdir -p $LOG_PATH
+#rm -rf $LOG_PATH
+#mkdir -p $LOG_PATH
 
 BASE_RESULTS_DIR=$CLOUD_ROOT_DIR/scratch_results/
 
@@ -32,7 +32,7 @@ ENV_NAME="FourAction"
 TRAIN_QUERY_LIST="0.10,0.20,0.50,0.70,1.0" 
 
 # this is for the test traces
-QUERY_LIST="0.15,0.30,0.45,0.80,0.9" 
+QUERY_LIST="0.05,0.15,0.30,0.45,0.80,0.9,0.95" 
 #QUERY_LIST="0.10" 
 
 # seeds for the stochastic traces to test on
@@ -43,7 +43,7 @@ TEST_SEEDS="10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,2
 #TEST_SEEDS="10"
 
 # 1. EVALUATE A PRE-TRAINED RL AGENT on the new test traces and log the results
-python3 $RL_TRAINER_DIR/evaluate_RL_offload_utils.py --config-path $CONFIG --test-seeds $TEST_SEEDS --env-name $ENV_NAME --log-path $LOG_PATH --model-save-path $MODEL_SAVE_PATH --query-budget-fraction-list $QUERY_LIST
+#python3 $RL_TRAINER_DIR/evaluate_RL_offload_utils.py --config-path $CONFIG --test-seeds $TEST_SEEDS --env-name $ENV_NAME --log-path $LOG_PATH --model-save-path $MODEL_SAVE_PATH --query-budget-fraction-list $QUERY_LIST
 
 # plot the RL agent
 #cd $BASE_4ACTION_DIR

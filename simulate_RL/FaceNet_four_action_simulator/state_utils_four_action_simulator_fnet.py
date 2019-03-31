@@ -194,7 +194,11 @@ def get_FourAction_reward(state_dict = None, numeric_action = None, reward_param
     # also penalize accuracy, full reward
     else:
         # accuracy depends on current prediction, which is classification error here
-        accuracy_cost_term = (prediction == y_true)
+        if prediction == y_true_input:
+            accuracy_cost_term = 0.0
+        else:
+            accuracy_cost_term = 1.0
+
         reward = - query_cost_weight * query_cost_term - accuracy_weight * accuracy_cost_term
 
     if print_mode:
@@ -204,5 +208,4 @@ def get_FourAction_reward(state_dict = None, numeric_action = None, reward_param
         print('accuracy_cost_term: ', accuracy_cost_term)
         print(' ')
 
-    return reward, query_cost_term, accuracy_cost_term, y_true
-
+    return reward, query_cost_term, accuracy_cost_term, y_true_input
