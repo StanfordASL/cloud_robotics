@@ -1,8 +1,6 @@
 overall pipeline to train and evaluate an RL agent for offloading
 
 
-
-
 EVALUATE A TRAINED RL AGENT
 
 ./eval_pretrain_RL_FourAction_fnet.sh
@@ -16,4 +14,8 @@ EVALUATE A TRAINED RL AGENT
 	3. call boxplot_FourAction_env.py to plot all the results over traces to see RL's gains
 	 
 
+HOW TO VIEW TENSORBOARD ON A REMOTE MACHINE
+ssh -L 16006:127.0.0.1:6006 username@remote_ip
+
+then go to localhost:16006 on local machine, maps port 6006 to 16006 on localhost
 
