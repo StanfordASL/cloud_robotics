@@ -277,6 +277,8 @@ class FourActionOffloadEnv:
 
         if seed is None:
             seed = self.seed
+        else:
+            self.seed = seed
 
         print('FACENET 4 action reset seed: ', seed)
         # sample a new timeseries

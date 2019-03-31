@@ -21,6 +21,8 @@ from textfile_utils import *
 # DONE
 def FourAction_rollout_all_edge(offloader_env = None, shuffle_mode = None, seed = None, old_edge_action = 0,  curr_edge_action = 2, results_print_mode = True, fixed_query_budget = None):
 
+    offloader_env._seed(seed)
+
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
 
@@ -49,6 +51,7 @@ def FourAction_rollout_all_edge(offloader_env = None, shuffle_mode = None, seed 
 # DONE
 def FourAction_rollout_threshold(offloader_env = None, shuffle_mode = None, seed = None, old_edge_action = 0,  curr_edge_action = 2, curr_cloud_action = 3, results_print_mode = True, fixed_query_budget = None, threshold = 0.5):
 
+    offloader_env._seed(seed)
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
 
@@ -87,6 +90,7 @@ def FourAction_rollout_threshold(offloader_env = None, shuffle_mode = None, seed
 
 def FourAction_rollout_all_cloud(offloader_env = None, shuffle_mode = None, seed = None, past_cloud_action = 1, curr_cloud_action = 3, results_print_mode = True, fixed_query_budget = None):
 
+    offloader_env._seed(seed)
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
 
@@ -124,6 +128,7 @@ def FourAction_rollout_all_cloud(offloader_env = None, shuffle_mode = None, seed
 # DONE
 # random action
 def FourAction_rollout_random_action(offloader_env = None, shuffle_mode = None, seed = None, results_print_mode = True, fixed_query_budget = None):
+    offloader_env._seed(seed)
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
 
@@ -149,6 +154,7 @@ def FourAction_rollout_random_action(offloader_env = None, shuffle_mode = None, 
 # oracle action, but NO constraints!
 def FourAction_rollout_pure_oracle_action(offloader_env = None, shuffle_mode = None, seed = None, results_print_mode = False, GP_mode = True, fixed_query_budget = None, past_edge_action = 0, past_cloud_action = 1, curr_edge_action = 2, curr_cloud_action = 3):
 
+    offloader_env._seed(seed)
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
     offloader_env.controller_name = 'pure_oracle'
@@ -193,6 +199,7 @@ def FourAction_rollout_pure_oracle_action(offloader_env = None, shuffle_mode = N
 
 def offline_oracle_strategy(offloader_env = None, shuffle_mode = None, seed = None, fixed_query_budget = None, past_edge_action = 0, past_cloud_action = 1, curr_edge_action = 2, curr_cloud_action = 3):
 
+    offloader_env._seed(seed)
     # start the episode
     offloader_env._reset(shuffle_mode = shuffle_mode, seed = seed, fixed_query_budget = fixed_query_budget)
     
