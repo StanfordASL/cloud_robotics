@@ -4,8 +4,20 @@ This subdir is experimental. We wanted to:
 
 2. train a SUPERVISED learning neural network offloader
    - input features:
- 
-   - call python3 train_supervised_learning_offloader.py 
+     - read from offloader_DNN_features/offloader_DNN_input_features.txt
+
+    - columns:
+        SVM_confidence
+        embedding_distance
+        face_confidence
+        frame_diff_val
+        numeric_prediction
+        unknown_flag
+        num_detect
+
+   - call run_train_offloader_DNN.sh 
+   - this calls: 
+        - python3 train_supervised_learning_offloader.py 
 
    - train/test median percentage errors should be around 10%
 
