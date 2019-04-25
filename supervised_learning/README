@@ -1,0 +1,11 @@
+This subdir is experimental. We wanted to:
+
+1. annotate data from the live videos we took
+
+2. train a SUPERVISED learning neural network offloader 
+
+3. quantify the performance on test videos
+
+4. deploy on the Jetson TX2 live video camera
+
+5. quantify the results

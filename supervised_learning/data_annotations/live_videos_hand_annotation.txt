@@ -1,0 +1,86 @@
+TEST VIDEOS:
+
+video 1 and 3
+
+trial 1:
+	apoorva: 0 - 480
+
+	[high confidence very good]
+
+	james: 700 - 1170 [apoorva back]
+
+	joe: 1300 - 2120 (apoorva on the back)
+
+
+trial 2:
+
+	james, sandeep, apoorva
+
+	A + S, mostly A until 350
+
+	James, bad confidence: 600 - 1180
+
+	sandeep: 1200 onwards
+
+	with james until 1680
+
+	sandeep: 1750-1900
+	
+	# timeseries
+	apoorva or sandeep: [0, 350]
+
+	james: [600-1680], sandeep: [1200-1680]
+
+	sandeep: 1750-1900
+
+trial 3:
+
+	james, sandeep, apoorva
+
+
+	apoorva: [0, 220]
+
+	james: [330-495]
+
+	sandeep: [660-895]
+
+trial 4: 
+
+	james, sandeep, apoorva
+
+	james: [0, 360]
+
+	apoorva: [450-840]
+
+	sandeep: [960, ...]
+
+trial 5:
+
+	james + apoorva : 170-470
+
+	james only: 470-675
+
+	apoorva: 675-890
+
+	j + a: 890 - 1160
+
+trial 6: 
+	apoorva only: 0 -345
+
+	james: 500-770
+
+	james + apoorva: 770 onwards [770 - 1035]
+
+	sandeep only: 1190 - 1365
+
+
+sandeep abi video
+	abi: [0, 220]
+
+	sandeep: [220, 350] with abi
+
+	abi: [1000-1175]
+
+	sandeep: [1500-onwards]
+
+sandeep ed video
