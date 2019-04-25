@@ -1,5 +1,4 @@
 EDGE_DATASET:
-
     - subdirectories are names of people like:
         alice/ bob/
     - where each subdir has many JPGS of training data of faces

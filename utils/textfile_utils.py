@@ -12,9 +12,11 @@ import copy
 import numpy as np
 from scipy.ndimage.interpolation import shift
 
+def list_from_file(fname = None): 
 
-
-
+    with open(fname, 'r') as file:
+        lines = [line.strip() for line in file]
+        return lines
 
 """
     shift a ts by one to the right

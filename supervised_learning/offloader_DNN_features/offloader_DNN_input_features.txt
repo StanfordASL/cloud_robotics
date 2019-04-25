@@ -1,0 +1,7 @@
+SVM_confidence
+embedding_distance
+face_confidence
+frame_diff_val
+numeric_prediction
+unknown_flag
+num_detect

@@ -2,7 +2,18 @@ This subdir is experimental. We wanted to:
 
 1. annotate data from the live videos we took
 
-2. train a SUPERVISED learning neural network offloader 
+2. train a SUPERVISED learning neural network offloader
+   - input features:
+ 
+   - call python3 train_supervised_learning_offloader.py 
+
+   - train/test median percentage errors should be around 10%
+
+    - this saves the neural net in: 
+    /keras_offloader_DNN/offloader_DNN_model/
+        - feature_scaler.save: feature scaler 
+        - model.offload.yaml: model def
+        - weights.offload.h5: model weights
 
 3. quantify the performance on test videos
 
