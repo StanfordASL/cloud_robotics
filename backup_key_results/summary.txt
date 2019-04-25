@@ -1,0 +1,58 @@
+Costs for the bottom two cases:
+
+# TRAIN query lists: 
+####################################
+network fraction shares trained on: 0.10,0.20,0.50,0.70,1.0
+
+network fraction shares tested on: 0.05,0.15,0.30,0.45,0.80,0.9,0.95
+
+# costs of basic queries
+####################################
+self.query_cost_dict = {}
+self.query_cost_dict[0] = 0.0
+self.query_cost_dict[1] = 0.0
+self.query_cost_dict[2] = 1.0
+self.query_cost_dict[3] = 5.0
+
+edge: 1.0
+cloud: 5.0
+
+query_cost_weight: 1.0
+accuracy_weight: 10.0
+
+
+62% of oracle, at least 2.08x all other controllers
+####################################
+
+RUN_NAME: RL_data_facenet_4action_run3_newcost
+
+fold_results:
+
+reward  pure_oracle 0.6187499999999999
+reward  random  3.5056561461794016
+reward  threshold-0.5   2.0789999999999997
+reward  curr_edge   2.2807594936708857
+reward  curr_cloud  2.2913207547169807
+reward  RL  1.0
+
+
+RUN_NAME: RL_data_facenet_4action_run3_newcost_run2
+
+####################################
+60% of oracle, 2.10x all other controllers
+
+reward  threshold-0.05  2.2845087402049424
+reward  pure_oracle 0.5986394557823129
+reward  threshold-0.15  2.2845087402049424
+reward  threshold-0.4   2.140240711669283
+reward  threshold-0.3   2.2868900646678423
+reward  RL  1.0
+reward  curr_cloud  2.2641509433962264
+reward  random  3.463901689708141
+reward  threshold-0.5   2.1025240697371843
+reward  threshold-0.25  2.2845087402049424
+reward  threshold-0.1   2.2845087402049424
+reward  curr_edge   2.2845087402049424
+
+
+
