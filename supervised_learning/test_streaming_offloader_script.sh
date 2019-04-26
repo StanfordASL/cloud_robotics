@@ -18,5 +18,5 @@ TRAIN_DATA_DIR=$CLOUD_ROOT_DIR/data/video_data/single_video_annotations/
 PRETRAINED_NN_PATH=$CLOUD_ROOT_DIR/scratch_results/keras_offloader_DNN/offloader_DNN_model/
 
 # train the offloader DNN
-python3 -i test_streaming_offload_NN.py --output-results-dir $OUTPUT_RESULTS_DIR  --predict-var $PREDICT_VAR --train-features-list $TRAIN_FEATURES_LIST --train-ts-csv-list $TRAIN_TS_CSV_LIST --test-ts-csv-list $TEST_TS_CSV_LIST --train-data-dir $TRAIN_DATA_DIR --pretrained-NN-path $PRETRAINED_NN_PATH
+python3 test_streaming_offload_NN.py --output-results-dir $OUTPUT_RESULTS_DIR  --predict-var $PREDICT_VAR --train-features-list $TRAIN_FEATURES_LIST --train-ts-csv-list $TRAIN_TS_CSV_LIST --test-ts-csv-list $TEST_TS_CSV_LIST --train-data-dir $TRAIN_DATA_DIR --pretrained-NN-path $PRETRAINED_NN_PATH
 

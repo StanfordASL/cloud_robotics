@@ -1,6 +1,12 @@
 This subdir is experimental. We wanted to:
 
 1. annotate data from the live videos we took
+    1. take a video stream and run edge/cloud DNNs ON EVERY FRAME
+        - log all relevant information in raw_df/ folder
+    2. now we have raw info, lets add the ground-truth, which requires human annotation   
+        - see data_annotations/ subfolder 
+    3. now we add an offloading decision rule in a supervised manner
+        - this rule needs to be learned by an offloading DNN 
 
 2. train a SUPERVISED learning neural network offloader
    - input features:
@@ -28,7 +34,10 @@ This subdir is experimental. We wanted to:
         - weights.offload.h5: model weights
 
 3. quantify the performance on test videos
+    1. run test_streaming_offloader_script.sh
+
+    2. calls test_streaming_offload_NN.py
 
 4. deploy on the Jetson TX2 live video camera
 
-5. quantify the results
+5. quantify the results and compare with existing benchmarks
