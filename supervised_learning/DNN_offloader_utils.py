@@ -7,6 +7,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import collections
+from collections import OrderedDict
 
 from keras.models import model_from_yaml
 
@@ -30,6 +31,23 @@ from plotting_utils import *
 # run experiments in parallel
 early_stopping = EarlyStopping(monitor='val_loss', patience=2)
 
+# GLOBAL CONSTANTS
+##########################################
+prediction_to_numeric_dict = OrderedDict()
+prediction_to_numeric_dict['unknown'] = -1
+prediction_to_numeric_dict['apoorva'] = 0
+prediction_to_numeric_dict['james'] = 1
+prediction_to_numeric_dict['sandeep'] = 2
+prediction_to_numeric_dict['joe'] = 3
+prediction_to_numeric_dict['karen'] = 4
+prediction_to_numeric_dict['boris'] = 5
+prediction_to_numeric_dict['amine'] = 6
+prediction_to_numeric_dict['andrew'] = 7
+prediction_to_numeric_dict['adrian'] = 8
+prediction_to_numeric_dict['trisha'] = 9
+prediction_to_numeric_dict['abi'] = 10
+
+##########################################
 """
 error metrics
 """

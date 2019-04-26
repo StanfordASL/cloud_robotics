@@ -3,5 +3,5 @@ embedding_distance
 face_confidence
 frame_diff_val
 numeric_prediction
-unknown_flag
+unknown
 num_detect
