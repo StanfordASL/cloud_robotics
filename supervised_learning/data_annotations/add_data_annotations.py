@@ -141,5 +141,3 @@ for i, ts_csv in enumerate(total_csv_list):
 # write total train df to a file
 total_train_csv = train_data_dir + '/total_train_df.csv'
 total_train_df.to_csv(total_train_csv)
-
-
