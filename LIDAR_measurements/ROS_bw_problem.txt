@@ -1,0 +1,46 @@
+https://answers.ros.org/question/256080/ros-ate-my-network-bandwidth/
+
+Sorry for the title, no offence. I'm just crazy about the problem.
+
+I have 2 computers, A and B connected via a 1000Mbps network connection, 3 network cameras were connected to this network.
+
+I was trying to capture images in computer A, and publish the images via ROS, so the computer B could receive a copy simultaneously.
+
+Here is the weird thing I've encountered:
+
+If the IN-COMING bandwidth of B is ~400Mbps, then the OUT-GOING bandwidth of A would be ~800Mbps, that said, A is sending twice as much data as needed by B. What's wrong with it??? I've tested the bandwidth usage by the command rostopic bw /the_image_topic, and the result on both A and B are all ~400Mbps.
+
+I'm very sure that there's no other subscriber on the network, as when I stop the subscriber on B, the network traffic drops down to nearly zero immediately.
+
+In case there's some bugs lie in the camera driver, I wrote a very simple program to publish some Lidar data from pre-recorded Lidar files. And I could observe the same issue is still there, or even worse, this time the ratio of out-going/in-coming is very near to 3/1 ...
+
+Can anyone help me with this problem? The bandwidth is far from sufficient to support 3 cameras simultaneously, it's currently the bottleneck of my system. Many thanks for any kinds of help!
+
+Closed for the following reason question is not relevant or outdated by tfoote 
+close date 2019-02-21 18:43:42.122293
+Comments
+ROS uses the lo interface to send msgs between nodes on the same machine. Can you verify that however you are measuring your utilised bw does not include lo as well?
+
+gvdhoorn gravatar imagegvdhoorn ( Mar 3 '17 )
+@gvdhoorn, thank you. I used nload eth0 to measure the specific traffic on the interface eth0, so lo is not taken into account. When I used all the 3 cameras, the network load was pushed to its limit very quickly, then the camera capturing node died because of couldn't connect to master node
+
+ZOU Lu gravatar imageZOU Lu ( Mar 3 '17 )
+I've tested the bandwidth usage by the command rostopic bw /the_image_topic
+
+I don't know if this is the cause of what you're seeing, but rostopic is just another subscriber, so that would count as another 400Mbps in your nload output.
+
+gvdhoorn gravatar imagegvdhoorn ( Mar 4 '17 )
+I stoped other subscribers before rostopic bw, and that command is issued on the same box of the publisher, which means this portion of traffic would go to lo instead of eth0, am I right?
+
+ZOU Lu gravatar imageZOU Lu ( Mar 4 '17 )
+Yes. Nodes on the same machine should use lo to communicate.
+
+Could you please reword your question a bit? Perhaps include a table that shows who is publishing what, who is subscribing and what the resulting bw utilisation is versus the expected one.
+
+gvdhoorn gravatar imagegvdhoorn ( Mar 4 '17 )
+Hey, were u able to resolve this issue or figure out why this was happening?
+
+aditi741997 gravatar imageaditi741997 ( May 7 '19 )
+
+
+
