@@ -5,3 +5,8 @@ round-trip min/avg/max/stddev = 3.729/8.880/414.125/28.198 ms
 with downloads
 124 packets transmitted, 124 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 3.602/7.415/19.826/2.658 ms
+
+242 packets transmitted, 241 packets received, 0.4% packet loss
+round-trip min/avg/max/stddev = 3.582/9.043/380.636/27.308 ms
+
+2 lidars
