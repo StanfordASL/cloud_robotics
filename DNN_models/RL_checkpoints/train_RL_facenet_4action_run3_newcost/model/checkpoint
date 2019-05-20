@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/csandeep/Documents/work/uhana/work/cloud_robotics/scratch_results/train_RL_facenet_4action_run3_newcost//model/checkpoint-461580"
+all_model_checkpoint_paths: "/Users/csandeep/Documents/work/uhana/work/cloud_robotics/scratch_results/train_RL_facenet_4action_run3_newcost//model/checkpoint-461580"
