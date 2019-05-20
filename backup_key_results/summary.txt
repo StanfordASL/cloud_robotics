@@ -1,9 +1,11 @@
 Costs for the bottom two cases:
 
+between 60 - 70% of oracle, 2.10 - 2.3x the \emph{worst} heuristic
+controller across a diverse set of network conditions
+
 # TRAIN query lists: 
 ####################################
 network fraction shares trained on: 0.10,0.20,0.50,0.70,1.0
-
 network fraction shares tested on: 0.05,0.15,0.30,0.45,0.80,0.9,0.95
 
 # costs of basic queries
@@ -21,7 +23,7 @@ query_cost_weight: 1.0
 accuracy_weight: 10.0
 
 
-62% of oracle, at least 2.08x all other controllers
+62% of oracle, at least 2.08x the worst heuristic controllers
 ####################################
 
 RUN_NAME: RL_data_facenet_4action_run3_newcost

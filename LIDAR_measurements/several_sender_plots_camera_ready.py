@@ -18,7 +18,7 @@ if __name__ == '__main__':
         prefix_list = ['with_receiver', 'with_download', 'both_lidars']
 
         #final_legend_vec = ['LIDAR Source', '1 Receiver', '1 Receiver with Heavy Background Traffic', '2 Concurrent LIDAR Pairs']
-        final_legend_vec = ['LIDAR Source', '1 Recv.', '1 Recv. + Heavy Traffic', '2 LIDARs']
+        final_legend_vec = ['At LIDAR Source', 'At 1 LIDAR Recv.', '1 Recv. + Heavy Traffic', '2 LIDAR Recv.']
 
         bw_file_names = OrderedDict()
         bw_file_names['bw_lidar_source_with_receiver.txt']= 'ROS LIDAR source'
