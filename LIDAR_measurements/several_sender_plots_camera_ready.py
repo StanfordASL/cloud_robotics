@@ -34,6 +34,7 @@ def get_bw_info(bw_file_names = None, BASE_ROOT_DIR = None):
                         pass
             print('mean: ', np.median(bw_vector))
             print('std: ', np.std(bw_vector))
+            print('len: ', len(bw_vector))
             print(' ')
 
             total_bw_vector.append(bw_vector)
@@ -68,6 +69,7 @@ def get_hz_info(hz_file_names = None, BASE_ROOT_DIR = None):
                         pass
             print('mean: ', np.mean(hz_vector))
             print('std: ', np.std(hz_vector))
+            print('len: ', len(hz_vector))
             print(' ')
 
             total_hz_vector.append(hz_vector)
@@ -83,7 +85,7 @@ if __name__ == '__main__':
         prefix_list = ['with_receiver', 'with_download', 'both_lidars']
 
         #final_legend_vec = ['LIDAR Source', '1 Receiver', '1 Receiver with Heavy Background Traffic', '2 Concurrent LIDAR Pairs']
-        final_legend_vec = ['LIDAR Source', '1 Receiver', '1 Receiver + Heavy Traffic', '2 LIDARs']
+        final_legend_vec = ['LIDAR Source', '1 Recv.', '1 Recv. + Heavy Traffic', '2 LIDARs']
 
         bw_file_names = OrderedDict()
         bw_file_names['bw_lidar_source_with_receiver.txt']= 'ROS LIDAR source'
@@ -121,9 +123,10 @@ if __name__ == '__main__':
         ax1.set_ylabel(ylabel)
         ax2.set_ylabel(ylabel)
         # Generate a random univariate dataset
+        NORMED = True
         for i in range(len(total_bw_vector)):
             #sns.distplot(total_bw_vector[i], norm_hist = norm, ax = ax1)
-            ax1.hist(total_bw_vector[i], normed = True)
+            ax1.hist(total_bw_vector[i], normed = NORMED)
         #ax1.hist(total_bw_vector[1], density = True)
 
         
@@ -137,7 +140,7 @@ if __name__ == '__main__':
         # Generate a random univariate dataset
         for i in range(len(total_hz_vector)):
             #sns.distplot(total_hz_vector[i], norm_hist = norm, ax = ax1)
-            ax2.hist(total_hz_vector[i], normed = True)
+            ax2.hist(total_hz_vector[i], normed = NORMED)
 
         #sns.distplot(total_hz_vector[0], norm_hist = norm, ax = ax2, color = 'blue')
         #sns.distplot(total_hz_vector[1], norm_hist = norm, ax = ax2, color = 'red')
@@ -149,15 +152,15 @@ if __name__ == '__main__':
         ax2.set_xlabel(xlabel)
         #title_str = 'LIDAR Sampling Rate Distribution'
         #ax2.set_title(title_str)
-        ax1.legend(final_legend_vec, loc='best')
+        ax2.legend(final_legend_vec, loc='best')
 
         #plt.setp(axes)
         plt.tight_layout()
 
-        ax1.set_ylim([0,1.0])
+        ax1.set_ylim([0,0.6])
         ax1.set_xlim([0,100])
         ax2.set_ylim([0,3])
-        ax2.set_xlim([0,10])
+        ax2.set_xlim([0,15])
         plt.savefig(LIDAR_plot_file)
         plt.close()
         #Creates two subplots and unpacks the output array immediately

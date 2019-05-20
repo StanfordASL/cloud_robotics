@@ -29,4 +29,13 @@ IDEAL PLOT:
     - 1 receiver with simul file download
     - 2 receivers
 
+    bandwidth on right:
+        - Source
+        - 1 Receiver
+        - 1 Receiver + Heavy Background Traffic
+        - 2 Concurrent Sender/Receiver Pairs
+
+velodyne datasheet: 8.6 Mbps
+
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6387135/
 
