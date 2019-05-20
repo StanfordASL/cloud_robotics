@@ -1,4 +1,3 @@
-subscribed to [/velodyne_points]
 average: 9.83MB/s
 	mean: 0.88MB min: 0.88MB max: 0.88MB window: 9
 average: 9.27MB/s
@@ -239,4 +238,3 @@ average: 7.92MB/s
 	mean: 0.80MB min: 0.52MB max: 0.89MB window: 100
 average: 7.83MB/s
 	mean: 0.79MB min: 0.52MB max: 0.89MB window: 100
-average: 7

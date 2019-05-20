@@ -1,0 +1,249 @@
+invalid ROS_IP (must be a valid IPv4 or IPv6 address)
+invalid ROS_IP (must be a valid IPv4 or IPv6 address)
+invalid ROS_IP (must be a valid IPv4 or IPv6 address)
+invalid ROS_IP (must be a valid IPv4 or IPv6 address)
+invalid ROS_IP (must be a valid IPv4 or IPv6 address)
+invalid ROS_IP (must be a valid IPv4 or IPv6 address)
+subscribed to [/velodyne_points]
+average: 4.18MB/s
+	mean: 0.89MB min: 0.89MB max: 0.89MB window: 2
+average: 5.60MB/s
+	mean: 0.89MB min: 0.89MB max: 0.89MB window: 9
+average: 5.12MB/s
+	mean: 0.89MB min: 0.89MB max: 0.89MB window: 14
+average: 4.66MB/s
+	mean: 0.89MB min: 0.89MB max: 0.89MB window: 18
+average: 4.60MB/s
+	mean: 0.89MB min: 0.89MB max: 0.89MB window: 23
+average: 4.41MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 27
+average: 4.27MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 31
+average: 4.18MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 35
+average: 4.00MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 38
+average: 3.95MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 42
+average: 3.82MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 45
+average: 3.80MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 49
+average: 3.78MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 53
+average: 3.83MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 58
+average: 3.87MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 63
+average: 3.96MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 69
+average: 3.77MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 70
+average: 3.66MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 72
+average: 3.75MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 78
+average: 3.78MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 83
+average: 3.77MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 87
+average: 3.80MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 92
+average: 3.79MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 96
+average: 3.78MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.77MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.74MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.72MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.72MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.76MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.76MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.78MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.80MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 3.88MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.96MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.02MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.06MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.05MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.94MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.78MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.68MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.68MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.74MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.74MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.69MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.66MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.67MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.65MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.63MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.60MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.58MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.55MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.51MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.50MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.50MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.45MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.47MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.48MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.45MB/s
+	mean: 0.88MB min: 0.88MB max: 0.88MB window: 100
+average: 3.43MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.40MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.37MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.32MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.38MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.65MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.65MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.64MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.67MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.66MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.66MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.67MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.66MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.69MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.75MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.76MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.79MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.84MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.83MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.81MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.76MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.74MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.74MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.73MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.69MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.72MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.75MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.75MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.69MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.69MB/s
+	mean: 0.88MB min: 0.87MB max: 0.89MB window: 100
+average: 3.72MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.70MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.79MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.79MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.84MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.85MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.86MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.88MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.92MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.93MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.89MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.87MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 3.91MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.00MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.02MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.04MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.13MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.17MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.20MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.24MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.26MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.24MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.27MB/s
+	mean: 0.88MB min: 0.88MB max: 0.89MB window: 100
+average: 4.27MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 4.29MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 4.28MB/s
+	mean: 0.89MB min: 0.88MB max: 0.89MB window: 100
+average: 4.21MB/s
+	mean:
